@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WFS</title>
+    <link rel="icon" href="img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        :root {
+            --win10-main: #001f3f;
+            --win10-grad: linear-gradient(145deg, #001f3f, #000b18);
+            --win11-main: #ffffff;
+            --win11-grad: linear-gradient(145deg, #ffffff, #f0f4f9);
+            --accent-blue: #0078d4;
+            --accent-light: #4cc2ff;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI Variable Display', 'Segoe UI', system-ui, sans-serif;
+            background: #0d0d0d;
+            background-image: radial-gradient(circle at 50% 50%, #1a1a1a 0%, #000000 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        main {
+            width: 90%;
+            max-width: 1100px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(40px);
+            -webkit-backdrop-filter: blur(40px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 80px 60px;
+            box-shadow: 0 40px 100px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            animation: fadeIn 1s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 36px;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        .description {
+            font-size: 16px;
+            color: #a0a0a0;
+            margin-bottom: 50px;
+            font-weight: 300;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+        }
+
+        .column-header {
+            font-size: 14px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 25px;
+        }
+
+        .btn-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        a {
+            display: block;
+            padding: 18px 25px;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 12px;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .w10-btn {
+            background: var(--win10-grad);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .w10-btn:hover {
+            border-color: var(--accent-blue);
+            box-shadow: 0 0 25px rgba(0, 120, 212, 0.4);
+            transform: translateY(-3px);
+        }
+
+        .w11-btn {
+            background: var(--win11-grad);
+            color: #1c1c1c;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 4px 15px rgba(255, 255, 255, 0.05);
+        }
+
+        .w11-btn:hover {
+            background: #ffffff;
+            border-color: var(--accent-light);
+            box-shadow: 0 0 25px rgba(76, 194, 255, 0.4);
+            transform: translateY(-3px);
+        }
+
+        footer {
+            margin-top: 60px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            font-size: 12px;
+            color: #555;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .warning-tag {
+            background: rgba(232, 17, 35, 0.1);
+            color: #ff4d5a;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+<main>
+    <h1>Windows Fake Setup</h1>
+    <p class="description">PC를 업데이트 하는 척하면서 여유를 즐겨보세요.</p>
+
+    <div class="container">
+        <div>
+            <div class="column-header" style="color: var(--accent-blue);">Windows 10 (Legacy)</div>
+            <div class="btn-list">
+                <a href="./gb10.html" class="w10-btn">Windows 10 / Gigabyte</a>
+                <a href="./asrock10.html" class="w10-btn">Windows 10 / Asrock</a>
+                <a href="./msi10.html" class="w10-btn">Windows 10 / MSI</a>
+                <a href="./asus10.html" class="w10-btn">Windows 10 / ASUS</a>
+                <a href="./10.html" class="w10-btn">Windows 10 / Generic</a>
+            </div>
+        </div>
+
+        <div>
+            <div class="column-header" style="color: var(--accent-light);">Windows 11</div>
+            <div class="btn-list">
+                <a href="./gb11.html" class="w11-btn">Windows 11 / Gigabyte</a>
+                <a href="./asrock11.html" class="w11-btn">Windows 11 / Asrock</a>
+                <a href="./msi11.html" class="w11-btn">Windows 11 / MSI</a>
+                <a href="./asus11.html" class="w11-btn">Windows 11 / ASUS</a>
+                <a href="./11.html" class="w11-btn">Windows 11 / Generic</a>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <span class="warning-tag">PC 성능이 저하될 경우 마우스 커서가 깜빡일 수 있습니다.</span>
+        <span class="warning-tag">실행 도중 F11을 클릭하지 마세요.</span>
+    </footer>
+</main>
+
+<script>
+    document.addEventListener("contextmenu", e => e.preventDefault());
+    document.addEventListener("keydown", e => {
+        if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "U")) {
+            e.preventDefault();
+        }
+    });
+</script>
+
+</body>
+</html>
