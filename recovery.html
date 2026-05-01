@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recovery</title>
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <style>
+        body {
+            cursor: none;
+            background-color: #0078D7;
+            font-family: "Segoe UI", "Malgun Gothic", "맑은 고딕", sans-serif;
+            line-height: 1.5;
+            letter-spacing: -0.02em;
+        }
+        header {
+            width: 50%;
+            margin: 35px 0 0 180px;
+        }
+        header > h1 {
+            margin: 0;
+            color: white;
+            font-weight: 400;
+            font-size: 40px;
+        }
+        header > h2 {
+            margin: 20px 0 0 0;
+            color: white;
+            font-weight: 360
+            
+        }
+        article {
+            width: 50%;
+            color: white;
+            box-sizing: border-box;
+            margin: 17px 0 0 180px;
+            font-size: 16px;
+        }
+        #main {
+            margin-bottom: 32px;
+        }
+        #main:last-child {
+            margin-bottom: 0;
+        }
+        footer {
+            width: 50%;
+            color: white;
+            box-sizing: border-box;
+            margin: 480px 0 0 180px;
+            font-size: 22px;
+            font-weight: 300;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>복구</h1>
+        <h2>PC/장치를 복구해야 합니다.</h2>
+    </header>
+    <article>
+        <div id="main">필요한 장치가 연결되어 있지 않거나 장치에 엑세스할 수 없습니다.</div>
+        <div id="main">오류 코드: 0xc000000e</div>
+        <div id="main">복구 도구를 사용해야 합니다. 설치 미디어(예: 디스크 또는 USB)가 없으면 PC 관리자<br>또는 PC/장치 제조업체에 문의하십시오.</div>
+    </article>
+    <footer>
+        <div id="foot">다시 시도하려면 &lt;Enter&gt; 키를 누르십시오.</div>
+        <div id="foot">F1를 눌러 복구 환경 입력</div>
+        <div id="foot">시작 설정을 보려면 F8 키를 누르십시오.</div>
+    </footer>
+    <script>
+        const targetKeys = ["Enter", "F1", "F8"];
+        let isBlinking = false;
+
+        document.addEventListener("contextmenu", e => e.preventDefault());
+
+        function requestFullScreen() {
+            const doc = document.documentElement;
+            if (doc.requestFullscreen) doc.requestFullscreen();
+            else if (doc.webkitRequestFullscreen) doc.webkitRequestFullscreen();
+            else if (doc.mozRequestFullScreen) doc.mozRequestFullScreen();
+            else if (doc.msRequestFullscreen) doc.msRequestFullscreen();
+        }
+
+        window.addEventListener("click", requestFullScreen, { once: true });
+        window.addEventListener("keydown", requestFullScreen, { once: true });
+
+        window.addEventListener("keydown", function(event) {
+            if (event.key === "F12" || (event.key === "Escape" && document.fullscreenElement)) {
+                event.preventDefault();
+            }
+
+            if (targetKeys.includes(event.key)) {
+                event.preventDefault();
+                if (isBlinking) return;
+                isBlinking = true;
+                document.body.style.backgroundColor = "black";
+                for (let child of document.body.children) {
+                    if (child.tagName !== "SCRIPT") child.style.display = "none";
+                }
+                setTimeout(() => {
+                    document.body.style.backgroundColor = "#0078D7";
+                    for (let child of document.body.children) {
+                        if (child.tagName !== "SCRIPT") child.style.display = "";
+                    }
+                    isBlinking = false;
+                }, 50);
+            }
+        });
+    </script>
+    <script>
+
+    </script>
+</body>
+</html>
